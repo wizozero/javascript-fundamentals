@@ -12,7 +12,6 @@ const capitalize = (str) => {
  * @example unique([1, 2, 2, 3]) // [1, 2, 3]
  */
 const unique = (arr) => {
-	// Pista: Piensa en estructuras de datos que no permiten duplicados
 	return [...new Set(arr)]
 }
 
@@ -23,9 +22,6 @@ const unique = (arr) => {
  * // { '20': [{age: 20}, {age: 20}], '30': [{age: 30}] }
  */
 const groupBy = (arr, key) => {
-	// Pista: Necesitas recorrer el array y construir un objeto
-	// ¿Qué método de arrays es ideal para construir algo nuevo?
-
 	return arr.reduce((group, item) => {
 		const value = item[key]
 
@@ -48,8 +44,6 @@ const groupBy = (arr, key) => {
  * console.log(obj.a); // 1 (no cambió)
  */
 const deepClone = (obj) => {
-	// Pista: Hay múltiples formas, piensa en operadores ES6
-
 	return { ...obj }
 }
 
@@ -58,8 +52,6 @@ const deepClone = (obj) => {
  * @example pick({a: 1, b: 2, c: 3}, ['a', 'c']) // {a: 1, c: 3}
  */
 const pick = (obj, keys) => {
-	// Pista: Itera sobre las keys que te dan, construye nuevo objeto
-
 	return keys.reduce((resultado, key) => {
 		if (key in obj) {
 			resultado[key] = obj[key]
@@ -76,8 +68,6 @@ const pick = (obj, keys) => {
  * console.log('1 segundo después');
  */
 const delay = (ms) => {
-	// Pista: Promesas y temporizadores
-
 	return new Promise((resolve) => {
 		setTimeout(resolve, ms)
 	})
