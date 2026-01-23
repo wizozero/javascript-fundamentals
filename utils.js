@@ -88,7 +88,13 @@ const delay = (ms) => {
  * @example chunk([1,2,3,4,5], 2) // [[1,2], [3,4], [5]]
  */
 const chunk = (arr, size) => {
-	// Pista: Necesitas recorrer el array de X en X elementos
+	const result = []
+
+	for (let i = 0; i < arr.length; i += size) {
+		const piece = arr.slice(i, i + size)
+		result.push(piece)
+	}
+	return result
 }
 
 /**
@@ -96,7 +102,7 @@ const chunk = (arr, size) => {
  * @example flatten([[1,2], [3,4]]) // [1,2,3,4]
  */
 const flatten = (arr) => {
-	// Pista: Piensa en cómo "expandir" arrays anidados
+	return arr.flat()
 }
 
 module.exports = {

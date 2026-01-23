@@ -5,6 +5,8 @@ const {
 	deepClone,
 	pick,
 	delay,
+	chunk,
+	flatten,
 } = require('./utils.js')
 
 ;(async () => {
@@ -43,4 +45,26 @@ const {
 	console.log('Inicio...')
 	await delay(2000)
 	console.log('...2 segundos después')
+
+	console.log('\n=== CHUNK ===')
+	console.log(chunk([1, 2, 3, 4, 5], 2)) // [[1,2], [3,4], [5]]
+	console.log(chunk([1, 2, 3, 4, 5, 6], 3)) // [[1,2,3], [4,5,6]]
+	console.log(chunk([1, 2, 3], 5)) // [[1,2,3]]
+	console.log(chunk([], 2)) // []
+
+	console.log('\n=== FLATTEN ===')
+	console.log(
+		flatten([
+			[1, 2],
+			[3, 4],
+		]),
+	) // [1,2,3,4]
+	console.log(flatten([[1], [2], [3]])) // [1,2,3]
+	console.log(
+		flatten([
+			['a', 'b'],
+			['c', 'd'],
+		]),
+	) // ['a','b','c','d']
+	console.log(flatten([])) // []
 })()
